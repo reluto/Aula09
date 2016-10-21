@@ -1,0 +1,22 @@
+body{
+	padding: 20px;
+}
+
+#form{
+	padding: 20px;
+	background: lightblue;
+}
+#result{
+	padding: 20px;
+	background: lightgray;
+}
+input{
+	width: 100%;
+}
+input.score{
+	width: 30px;
+}
+div#scoreButtons {
+    text-align: right;
+    padding: 6px;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MEAN School</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+	 <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+
+<body ng-app="app">
+	<div ng-controller="FormCtrl" id="form">
+		<form >
+			<input type="text" ng-model="student.name" placeholder="Name">
+			<input type="number" ng-model="student.age" placeholder="Age">
+			<input type="text" ng-model="student.occupation" placeholder="Occupation">
+
+			<div id="scoreButtons">
+			<label> Score from this Student:</label>
+				<button ng-click="scoreChange(1)" class="btn-xs btn-success">+</button>
+				<button ng-click="scoreChange(-1)" class="btn-xs btn-danger">-</button>
+			</div>
+			<input class="score" ng-repeat="index in scoreLength" type="number" ng-model="student.score[{{index}}]" placeholder="Score">
+			
+			<input type="submit" ng-click="addStudent(student)" class="btn btn-sm  btn-primary">
+		</form>
+	</div>
+	<div ng-controller="ResultCtrl" id="result">
+		<ul>
+			<li ng-repeat="student in students" >{{student.name}} - {{student.occupation}} - {{student.age}} years old</li>
+		</ul>
+	</div>
+	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="js/core.js"> </script>
+</body>
+</html>
