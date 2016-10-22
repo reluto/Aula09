@@ -20,17 +20,23 @@
 				<button ng-click="scoreChange(1)" class="btn-xs btn-success">+</button>
 				<button ng-click="scoreChange(-1)" class="btn-xs btn-danger">-</button>
 			</div>
-			<input class="score" ng-repeat="index in scoreLength" type="number" ng-model="student.score[{{index}}]" placeholder="Score">
+			<input class="score" ng-repeat="index in scoreLength" type="number" ng-model="student.score[index]" placeholder="Score {{$index}}">
 			
 			<input type="submit" ng-click="addStudent(student)" class="btn btn-sm  btn-primary">
 		</form>
 	</div>
 	<div ng-controller="ResultCtrl" id="result">
 		<ul>
-			<li ng-repeat="student in students" >{{student.name}} - {{student.occupation}} - {{student.age}} years old</li>
+			<li ng-repeat="student in students" >
+				{{student.name}} - {{student.occupation}} - {{student.age}} years old
+				<button ng-click="delStudent(student._id)" class="btn-xs btn-danger">
+					<span class="glyphicon glyphicon-remove"></span>
+				</button>
+			</li>
 		</ul>
 	</div>
 	<script src="bower_components/angular/angular.min.js"></script>
 	<script src="js/core.js"> </script>
+	<script src="js/factory.js"> </script>
 </body>
 </html>
